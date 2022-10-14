@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/shared/utils/logger.dart';
+import 'package:flutter_boilerplate/utils/logger.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
