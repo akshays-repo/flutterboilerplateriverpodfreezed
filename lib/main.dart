@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/app/widget/main_screen.dart';
 import 'package:flutter_boilerplate/utils/logger.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  ProviderScope(
+  runApp(ProviderScope(
     observers: [Logger()],
     child: const MyApp(),
-  );
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Text("Hello"),
+      home: const AppMainScreen(),
     );
   }
 }
