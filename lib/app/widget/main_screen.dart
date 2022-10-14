@@ -9,15 +9,22 @@ class AppMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Consumer(
-        builder: (context, ref, child) {
-          AppStartState appStartState = ref.watch(appStartStateProvider);
-          return appStartState.maybeWhen(
-              authenticated: (() => const Text("Welcome back")),
-              initial: (() => const CircularProgressIndicator()),
-              errorWithMessage: (err) => (Text(err)),
-              orElse: (() => const Text("Something went wrong")));
-        },
+      body: Center(
+          child: Column(
+        children: [
+          Consumer(
+            builder: (context, ref, child) {
+              AppStartState appStartState = ref.watch(appStartStateProvider);
+              return appStartState.maybeWhen(
+                  authenticated: (() => const Text("Welcome back")),
+                  initial: (() => const CircularProgressIndicator()),
+                  errorWithMessage: (err) => (Text(err)),
+                  orElse: (() => const Text("Something went wrong")));
+            },
+          ),
+          ElevatedButton(
+              onPressed: () => {}, child: const Text("Check something"))
+        ],
       )),
     );
   }
