@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 class _Endpoints {
   // base url
-  static const String baseUrl = "https://reqres.in/api";
+  static const String baseUrl = "https://jsonplaceholder.typicode.com/";
 
   // receiveTimeout
   static const int receiveTimeout = 15000;

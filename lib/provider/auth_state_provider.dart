@@ -7,6 +7,5 @@ final appAuthStateProvider =
 });
 
 class _AuthStateNotifier extends StateNotifier<AppAuthState> {
-  _AuthStateNotifier()
-      : super(const AppAuthState.errorWithMessage("Cound find the error"));
+  _AuthStateNotifier() : super(const AppAuthState.authorized());
 }
