@@ -3,7 +3,7 @@ import 'package:flutter_boilerplate/app/widget/main_screen.dart';
 import 'package:flutter_boilerplate/utils/logger.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
+void start() {
   runApp(ProviderScope(
     observers: [Logger()],
     child: const MyApp(),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/feature/home/data/post_model.dart';
 import 'package:flutter_boilerplate/feature/home/provider/post_state_provider.dart';
+import 'package:flutter_boilerplate/feature/home/provider/posts_provider.dart';
+import 'package:flutter_boilerplate/utils/print.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,16 +17,14 @@ class HomeScreen extends StatelessWidget {
               Consumer(
                 builder: (context, ref, child) {
                   var postProvider = ref.watch(postStateProvider);
-                  print(
+                  appPrint(
                       "--------------------------- $postProvider --------------------------");
                   return postProvider.when(initial: () {
                     return const CircularProgressIndicator();
                   }, loading: () {
                     return const CircularProgressIndicator();
-                  }, success: (posts) {
-                    return _PostsWidget(
-                      post: posts,
-                    );
+                  }, success: (_) {
+                    return const _PostsWidget();
                   }, errorWithMessage: (err) {
                     return Text(err);
                   });
@@ -34,7 +33,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              Container(child: Consumer(
+              Consumer(
                 builder: (context, ref, child) {
                   return ElevatedButton(
                       onPressed: () {
@@ -42,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                       },
                       child: const Text("Check something"));
                 },
-              )),
+              ),
             ],
           ),
         ),
@@ -52,17 +51,20 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _PostsWidget extends StatelessWidget {
-  const _PostsWidget({required this.post});
-
-  final List<Post> post;
+  const _PostsWidget();
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      for (var po in post)
-        Card(
-          child: Text(po.title),
-        )
-    ]);
+    return Consumer(
+      builder: (context, ref, child) {
+        var posts = ref.watch(postsProvider);
+        return Column(children: [
+          for (var post in posts)
+            Card(
+              child: Text(post.title),
+            )
+        ]);
+      },
+    );
   }
 }

@@ -7,17 +7,17 @@ import 'package:flutter_boilerplate/state/app_auth_state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final appStartStateProvider =
-    StateNotifierProvider<AppStartStateNotifer, AppStartState>((ref) {
+    StateNotifierProvider<AppStartStateNotifier, AppStartState>((ref) {
   AppAuthState appAuthState = ref.read(appAuthStateProvider);
 
   AppRepository appRepository =
       AppRepository(AppApi(dioClient: ref.watch(dioProvider)));
 
-  return AppStartStateNotifer(appAuthState, appRepository);
+  return AppStartStateNotifier(appAuthState, appRepository);
 });
 
-class AppStartStateNotifer extends StateNotifier<AppStartState> {
-  AppStartStateNotifer(this._appAuthState, this._appRepository)
+class AppStartStateNotifier extends StateNotifier<AppStartState> {
+  AppStartStateNotifier(this._appAuthState, this._appRepository)
       : super(const AppStartState.initial()) {
     _init();
   }
