@@ -25,7 +25,6 @@ class _PostSateNotifier extends StateNotifier<PostState> {
 
     postState.whenOrNull(
         success: (listPost) => {_ref.read(postsProvider).addAll(listPost)});
-
     state = postState;
   }
 }
