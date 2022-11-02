@@ -30,6 +30,8 @@ class DioClient {
         responseBody: true,
       ));
   }
+
+  // TODO: Named parametrs
   // Get:-----------------------------------------------------------------------
   Future<Response> get(
     String url, {

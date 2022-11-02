@@ -13,14 +13,16 @@ class PostRepo {
   Future<PostState> fetchPost() async {
     try {
       Response response = await _postApi.fetchPosts();
-
       List<Post> post = postFromJson(response.data);
       return PostState.success(post);
+
+      //TODO:  Single Exception
     } on DioError catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       return PostState.errorWithMessage(errorMessage);
     } catch (e) {
       appPrint(e);
+      // TODO:Json error format execptions
       return const PostState.errorWithMessage("Error in data Processing");
     }
   }

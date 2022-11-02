@@ -19,6 +19,7 @@ class HomeScreen extends StatelessWidget {
                   var postProvider = ref.watch(postStateProvider);
                   appPrint(
                       "--------------------------- $postProvider --------------------------");
+
                   return postProvider.when(initial: () {
                     return const CircularProgressIndicator();
                   }, loading: () {

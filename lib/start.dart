@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/app/widget/main_screen.dart';
 import 'package:flutter_boilerplate/utils/logger.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'feature/auth/widget/Login_screen.dart';
 
 void start() {
   runApp(ProviderScope(
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AppMainScreen(),
+      home: const LoginScreen(),
     );
   }
 }
