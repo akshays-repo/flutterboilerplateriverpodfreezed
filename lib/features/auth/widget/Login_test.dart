@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/feature/auth/widget/LoginSucesss_screen.dart';
+import 'package:flutter_boilerplate/features/auth/widget/LoginSucesss_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -1,4 +1,4 @@
-import 'package:flutter_boilerplate/utils/get_random.dart';
+import 'package:flutter_boilerplate/app/utils/get_random.dart';
 
 class AuthApi {
   Future<int> getOtp() {

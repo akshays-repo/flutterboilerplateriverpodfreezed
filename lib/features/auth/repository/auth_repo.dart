@@ -1,4 +1,4 @@
-import 'package:flutter_boilerplate/feature/auth/state/forgotpassword_state.dart';
+import 'package:flutter_boilerplate/features/auth/state/forgotpassword_state.dart';
 
 import '../data/auth_api.dart';
 

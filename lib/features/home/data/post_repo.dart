@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_boilerplate/feature/home/data/post_api.dart';
-import 'package:flutter_boilerplate/feature/home/data/post_model.dart';
-import 'package:flutter_boilerplate/feature/home/state/post_state.dart';
-import 'package:flutter_boilerplate/utils/dio_exception.dart';
-import 'package:flutter_boilerplate/utils/print.dart';
+import 'package:flutter_boilerplate/features/home/data/post_api.dart';
+import 'package:flutter_boilerplate/features/home/data/post_model.dart';
+import 'package:flutter_boilerplate/features/home/state/post_state.dart';
+import 'package:flutter_boilerplate/app/utils/dio_exception.dart';
+import 'package:flutter_boilerplate/app/utils/print.dart';
 
 class PostRepo {
   final PostApi _postApi;

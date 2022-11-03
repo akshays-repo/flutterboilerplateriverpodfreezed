@@ -24,7 +24,9 @@ class ForgotPassword extends StatelessWidget {
                     return const Text("Initial");
                   },
                   loading: () {
-                    return const CircularProgressIndicator();
+                    return const CircularProgressIndicator(
+                      key: Key('progress'),
+                    );
                   },
                   success: (otp) {
                     return Text(otp.toString());
@@ -37,6 +39,7 @@ class ForgotPassword extends StatelessWidget {
               Consumer(
                 builder: (context, ref, child) {
                   return ElevatedButton(
+                      key: const Key('get-otp'),
                       onPressed: () {
                         ref.read(forgotPasswordProvider.notifier).fetchOtp();
                       },

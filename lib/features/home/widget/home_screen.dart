@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/feature/home/provider/post_state_provider.dart';
-import 'package:flutter_boilerplate/feature/home/provider/posts_provider.dart';
-import 'package:flutter_boilerplate/utils/print.dart';
+import 'package:flutter_boilerplate/features/home/provider/post_state_provider.dart';
+import 'package:flutter_boilerplate/features/home/provider/posts_provider.dart';
+import 'package:flutter_boilerplate/app/utils/print.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomeScreen extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/feature/auth/widget/Forgot_Screen.dart';
+import 'package:flutter_boilerplate/features/auth/widget/Forgot_Screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

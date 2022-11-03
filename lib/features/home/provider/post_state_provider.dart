@@ -1,8 +1,8 @@
-import 'package:flutter_boilerplate/feature/home/data/post_api.dart';
-import 'package:flutter_boilerplate/feature/home/data/post_repo.dart';
-import 'package:flutter_boilerplate/feature/home/provider/posts_provider.dart';
-import 'package:flutter_boilerplate/feature/home/state/post_state.dart';
-import 'package:flutter_boilerplate/provider/dio_provider.dart';
+import 'package:flutter_boilerplate/features/home/data/post_api.dart';
+import 'package:flutter_boilerplate/features/home/data/post_repo.dart';
+import 'package:flutter_boilerplate/features/home/provider/posts_provider.dart';
+import 'package:flutter_boilerplate/features/home/state/post_state.dart';
+import 'package:flutter_boilerplate/app/provider/dio_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final postStateProvider =

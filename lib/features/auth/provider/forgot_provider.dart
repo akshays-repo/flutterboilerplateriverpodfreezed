@@ -1,5 +1,5 @@
-import 'package:flutter_boilerplate/feature/auth/data/auth_api.dart';
-import 'package:flutter_boilerplate/feature/auth/state/forgotpassword_state.dart';
+import 'package:flutter_boilerplate/features/auth/data/auth_api.dart';
+import 'package:flutter_boilerplate/features/auth/state/forgotpassword_state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../repository/auth_repo.dart';

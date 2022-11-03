@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/feature/auth/widget/Login_screen.dart';
+import 'package:flutter_boilerplate/features/auth/widget/Login_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
-  const loginWidget = MaterialApp(
+  const loginWidget = ProviderScope(
+      child: MaterialApp(
     home: LoginScreen(),
-  );
+  ));
 
   group('Login page init ', () {
     testWidgets('Login page is created', (WidgetTester tester) async {
@@ -63,17 +65,21 @@ void main() {
       expect(find.text("Invalid email"), findsOneWidget);
     });
 
-    // testWidgets('check invalid email: ', (WidgetTester tester) async {
-    //   await tester.pumpWidget(loginWidget);
+    testWidgets('check invalid email: ', (WidgetTester tester) async {
+      await tester.pumpWidget(loginWidget);
 
-    //   final Finder emailWidget = find.widgetWithText(TextFormField, 'Email');
-    //   final Finder submit = find.widgetWithText(TextButton, 'Login');
-    //   await tester.enterText(emailWidget, 'akshays');
-    //   await tester.pumpAndSettle();
-    //   await tester.tap(submit);
-    //   await tester.pump(const Duration(seconds: 3));
-    //   expect(find.text("Invalid email"), findsOneWidget);
-    // });
+      final Finder emailWidget = find.widgetWithText(TextField, 'Email');
+      final Finder submit = find.widgetWithText(TextButton, 'Login');
+      await tester.pump(const Duration(seconds: 3));
+
+      await tester.enterText(emailWidget, 'akshays');
+      await tester.pump(const Duration(seconds: 3));
+
+      await tester.pumpAndSettle();
+      await tester.tap(submit);
+      await tester.pump(const Duration(seconds: 3));
+      expect(find.text("Invalid email"), findsOneWidget);
+    });
   });
 
   group('Password Field validation ', () {

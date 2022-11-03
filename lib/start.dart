@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/utils/logger.dart';
+import 'package:flutter_boilerplate/app/utils/logger.dart';
+import 'package:flutter_boilerplate/features/auth/widget/Login_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'feature/auth/widget/Login_screen.dart';
 
 void start() {
   runApp(ProviderScope(

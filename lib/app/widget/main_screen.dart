@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/app/provider/app_state_provider.dart';
 import 'package:flutter_boilerplate/app/state/app_start_state.dart';
-import 'package:flutter_boilerplate/feature/home/widget/home_screen.dart';
+import 'package:flutter_boilerplate/features/home/widget/home_screen.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class AppMainScreen extends StatelessWidget {
