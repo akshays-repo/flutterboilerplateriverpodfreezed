@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_boilerplate/app/data/example_api.dart';
-import 'package:flutter_boilerplate/app/data/new_user_model.dart';
-import 'package:flutter_boilerplate/app/data/user_model.dart';
+import 'package:flutter_boilerplate/app/api/example_api.dart';
+import 'package:flutter_boilerplate/app/model/new_user_model.dart';
+import 'package:flutter_boilerplate/app/model/user_model.dart';
 import 'package:flutter_boilerplate/app/utils/dio_exception.dart';
 
 class AppRepository {

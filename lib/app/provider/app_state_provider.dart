@@ -1,5 +1,5 @@
-import 'package:flutter_boilerplate/app/data/example_api.dart';
-import 'package:flutter_boilerplate/app/data/example_repository.dart';
+import 'package:flutter_boilerplate/app/api/example_api.dart';
+import 'package:flutter_boilerplate/app/repository/example_repository.dart';
 import 'package:flutter_boilerplate/app/state/app_start_state.dart';
 import 'package:flutter_boilerplate/app/provider/auth_state_provider.dart';
 import 'package:flutter_boilerplate/app/provider/dio_provider.dart';
