@@ -22,7 +22,6 @@ mixin _$AppAuthState {
     required TResult Function() unauthorized,
     required TResult Function() authorized,
     required TResult Function(String message) errorWithMessage,
-    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +30,6 @@ mixin _$AppAuthState {
     TResult? Function()? unauthorized,
     TResult? Function()? authorized,
     TResult? Function(String message)? errorWithMessage,
-    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +38,6 @@ mixin _$AppAuthState {
     TResult Function()? unauthorized,
     TResult Function()? authorized,
     TResult Function(String message)? errorWithMessage,
-    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,7 +47,6 @@ mixin _$AppAuthState {
     required TResult Function(AppExceptionUnauthorized value) unauthorized,
     required TResult Function(AppAuthorized value) authorized,
     required TResult Function(_AuthExeptionWithMessage value) errorWithMessage,
-    required TResult Function(_AppAuthExceptionError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,7 +55,6 @@ mixin _$AppAuthState {
     TResult? Function(AppExceptionUnauthorized value)? unauthorized,
     TResult? Function(AppAuthorized value)? authorized,
     TResult? Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult? Function(_AppAuthExceptionError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,7 +63,6 @@ mixin _$AppAuthState {
     TResult Function(AppExceptionUnauthorized value)? unauthorized,
     TResult Function(AppAuthorized value)? authorized,
     TResult Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult Function(_AppAuthExceptionError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,7 +129,6 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
     required TResult Function() unauthorized,
     required TResult Function() authorized,
     required TResult Function(String message) errorWithMessage,
-    required TResult Function() error,
   }) {
     return connectivity();
   }
@@ -147,7 +140,6 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
     TResult? Function()? unauthorized,
     TResult? Function()? authorized,
     TResult? Function(String message)? errorWithMessage,
-    TResult? Function()? error,
   }) {
     return connectivity?.call();
   }
@@ -159,7 +151,6 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
     TResult Function()? unauthorized,
     TResult Function()? authorized,
     TResult Function(String message)? errorWithMessage,
-    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (connectivity != null) {
@@ -175,7 +166,6 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
     required TResult Function(AppExceptionUnauthorized value) unauthorized,
     required TResult Function(AppAuthorized value) authorized,
     required TResult Function(_AuthExeptionWithMessage value) errorWithMessage,
-    required TResult Function(_AppAuthExceptionError value) error,
   }) {
     return connectivity(this);
   }
@@ -187,7 +177,6 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
     TResult? Function(AppExceptionUnauthorized value)? unauthorized,
     TResult? Function(AppAuthorized value)? authorized,
     TResult? Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult? Function(_AppAuthExceptionError value)? error,
   }) {
     return connectivity?.call(this);
   }
@@ -199,7 +188,6 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
     TResult Function(AppExceptionUnauthorized value)? unauthorized,
     TResult Function(AppAuthorized value)? authorized,
     TResult Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult Function(_AppAuthExceptionError value)? error,
     required TResult orElse(),
   }) {
     if (connectivity != null) {
@@ -256,7 +244,6 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
     required TResult Function() unauthorized,
     required TResult Function() authorized,
     required TResult Function(String message) errorWithMessage,
-    required TResult Function() error,
   }) {
     return unauthorized();
   }
@@ -268,7 +255,6 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
     TResult? Function()? unauthorized,
     TResult? Function()? authorized,
     TResult? Function(String message)? errorWithMessage,
-    TResult? Function()? error,
   }) {
     return unauthorized?.call();
   }
@@ -280,7 +266,6 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
     TResult Function()? unauthorized,
     TResult Function()? authorized,
     TResult Function(String message)? errorWithMessage,
-    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
@@ -296,7 +281,6 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
     required TResult Function(AppExceptionUnauthorized value) unauthorized,
     required TResult Function(AppAuthorized value) authorized,
     required TResult Function(_AuthExeptionWithMessage value) errorWithMessage,
-    required TResult Function(_AppAuthExceptionError value) error,
   }) {
     return unauthorized(this);
   }
@@ -308,7 +292,6 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
     TResult? Function(AppExceptionUnauthorized value)? unauthorized,
     TResult? Function(AppAuthorized value)? authorized,
     TResult? Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult? Function(_AppAuthExceptionError value)? error,
   }) {
     return unauthorized?.call(this);
   }
@@ -320,7 +303,6 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
     TResult Function(AppExceptionUnauthorized value)? unauthorized,
     TResult Function(AppAuthorized value)? authorized,
     TResult Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult Function(_AppAuthExceptionError value)? error,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
@@ -376,7 +358,6 @@ class _$AppAuthorized implements AppAuthorized {
     required TResult Function() unauthorized,
     required TResult Function() authorized,
     required TResult Function(String message) errorWithMessage,
-    required TResult Function() error,
   }) {
     return authorized();
   }
@@ -388,7 +369,6 @@ class _$AppAuthorized implements AppAuthorized {
     TResult? Function()? unauthorized,
     TResult? Function()? authorized,
     TResult? Function(String message)? errorWithMessage,
-    TResult? Function()? error,
   }) {
     return authorized?.call();
   }
@@ -400,7 +380,6 @@ class _$AppAuthorized implements AppAuthorized {
     TResult Function()? unauthorized,
     TResult Function()? authorized,
     TResult Function(String message)? errorWithMessage,
-    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (authorized != null) {
@@ -416,7 +395,6 @@ class _$AppAuthorized implements AppAuthorized {
     required TResult Function(AppExceptionUnauthorized value) unauthorized,
     required TResult Function(AppAuthorized value) authorized,
     required TResult Function(_AuthExeptionWithMessage value) errorWithMessage,
-    required TResult Function(_AppAuthExceptionError value) error,
   }) {
     return authorized(this);
   }
@@ -428,7 +406,6 @@ class _$AppAuthorized implements AppAuthorized {
     TResult? Function(AppExceptionUnauthorized value)? unauthorized,
     TResult? Function(AppAuthorized value)? authorized,
     TResult? Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult? Function(_AppAuthExceptionError value)? error,
   }) {
     return authorized?.call(this);
   }
@@ -440,7 +417,6 @@ class _$AppAuthorized implements AppAuthorized {
     TResult Function(AppExceptionUnauthorized value)? unauthorized,
     TResult Function(AppAuthorized value)? authorized,
     TResult Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult Function(_AppAuthExceptionError value)? error,
     required TResult orElse(),
   }) {
     if (authorized != null) {
@@ -524,7 +500,6 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
     required TResult Function() unauthorized,
     required TResult Function() authorized,
     required TResult Function(String message) errorWithMessage,
-    required TResult Function() error,
   }) {
     return errorWithMessage(message);
   }
@@ -536,7 +511,6 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
     TResult? Function()? unauthorized,
     TResult? Function()? authorized,
     TResult? Function(String message)? errorWithMessage,
-    TResult? Function()? error,
   }) {
     return errorWithMessage?.call(message);
   }
@@ -548,7 +522,6 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
     TResult Function()? unauthorized,
     TResult Function()? authorized,
     TResult Function(String message)? errorWithMessage,
-    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (errorWithMessage != null) {
@@ -564,7 +537,6 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
     required TResult Function(AppExceptionUnauthorized value) unauthorized,
     required TResult Function(AppAuthorized value) authorized,
     required TResult Function(_AuthExeptionWithMessage value) errorWithMessage,
-    required TResult Function(_AppAuthExceptionError value) error,
   }) {
     return errorWithMessage(this);
   }
@@ -576,7 +548,6 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
     TResult? Function(AppExceptionUnauthorized value)? unauthorized,
     TResult? Function(AppAuthorized value)? authorized,
     TResult? Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult? Function(_AppAuthExceptionError value)? error,
   }) {
     return errorWithMessage?.call(this);
   }
@@ -588,7 +559,6 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
     TResult Function(AppExceptionUnauthorized value)? unauthorized,
     TResult Function(AppAuthorized value)? authorized,
     TResult Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult Function(_AppAuthExceptionError value)? error,
     required TResult orElse(),
   }) {
     if (errorWithMessage != null) {
@@ -606,124 +576,4 @@ abstract class _AuthExeptionWithMessage implements AppAuthState {
   @JsonKey(ignore: true)
   _$$_AuthExeptionWithMessageCopyWith<_$_AuthExeptionWithMessage>
       get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_AppAuthExceptionErrorCopyWith<$Res> {
-  factory _$$_AppAuthExceptionErrorCopyWith(_$_AppAuthExceptionError value,
-          $Res Function(_$_AppAuthExceptionError) then) =
-      __$$_AppAuthExceptionErrorCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_AppAuthExceptionErrorCopyWithImpl<$Res>
-    extends _$AppAuthStateCopyWithImpl<$Res, _$_AppAuthExceptionError>
-    implements _$$_AppAuthExceptionErrorCopyWith<$Res> {
-  __$$_AppAuthExceptionErrorCopyWithImpl(_$_AppAuthExceptionError _value,
-      $Res Function(_$_AppAuthExceptionError) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_AppAuthExceptionError implements _AppAuthExceptionError {
-  const _$_AppAuthExceptionError();
-
-  @override
-  String toString() {
-    return 'AppAuthState.error()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AppAuthExceptionError);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() connectivity,
-    required TResult Function() unauthorized,
-    required TResult Function() authorized,
-    required TResult Function(String message) errorWithMessage,
-    required TResult Function() error,
-  }) {
-    return error();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? connectivity,
-    TResult? Function()? unauthorized,
-    TResult? Function()? authorized,
-    TResult? Function(String message)? errorWithMessage,
-    TResult? Function()? error,
-  }) {
-    return error?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? connectivity,
-    TResult Function()? unauthorized,
-    TResult Function()? authorized,
-    TResult Function(String message)? errorWithMessage,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppExceptionConnectivity value) connectivity,
-    required TResult Function(AppExceptionUnauthorized value) unauthorized,
-    required TResult Function(AppAuthorized value) authorized,
-    required TResult Function(_AuthExeptionWithMessage value) errorWithMessage,
-    required TResult Function(_AppAuthExceptionError value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppExceptionConnectivity value)? connectivity,
-    TResult? Function(AppExceptionUnauthorized value)? unauthorized,
-    TResult? Function(AppAuthorized value)? authorized,
-    TResult? Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult? Function(_AppAuthExceptionError value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppExceptionConnectivity value)? connectivity,
-    TResult Function(AppExceptionUnauthorized value)? unauthorized,
-    TResult Function(AppAuthorized value)? authorized,
-    TResult Function(_AuthExeptionWithMessage value)? errorWithMessage,
-    TResult Function(_AppAuthExceptionError value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AppAuthExceptionError implements AppAuthState {
-  const factory _AppAuthExceptionError() = _$_AppAuthExceptionError;
 }

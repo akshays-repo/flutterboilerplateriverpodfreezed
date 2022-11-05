@@ -33,7 +33,6 @@ class AppStartStateNotifier extends StateNotifier<AppStartState> {
       connectivity: () => {state = const AppStartState.internetUnAvailable()},
       unauthorized: () => {state = const AppStartState.unauthenticated()},
       errorWithMessage: (err) => {state = AppStartState.errorWithMessage(err)},
-      error: () => {state = const AppStartState.internetUnAvailable()},
     );
   }
 }
