@@ -1,36 +1,42 @@
 import 'package:flutter_boilerplate/app/provider/app_state_provider.dart';
 import 'package:flutter_boilerplate/app/provider/auth_state_provider.dart';
+import 'package:flutter_boilerplate/app/repository/api/authchecking_api.dart';
+import 'package:flutter_boilerplate/app/repository/authchecking_repositoty.dart';
+import 'package:flutter_boilerplate/app/repository/sql/authchecking_sql.dart';
 import 'package:flutter_boilerplate/app/state/app_auth_state.dart';
 import 'package:flutter_boilerplate/app/state/app_start_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mocktail/mocktail.dart';
 
-class FakeRepository extends AuthStateNotifier implements Mock {}
+class MockAuthCheckingSql extends AuthCheckingSql implements Mock {}
 
-class MockCounterNotifier extends AuthStateNotifier {}
+class MockAuthCheckingApi extends AuthCheckingApi implements Mock {}
+
+class MockAuthCheckRepository extends AuthCheckingRepository implements Mock {
+  MockAuthCheckRepository(super.authCheckingApi, super.authCheckingSql);
+}
+
+StateNotifierProvider<AuthStateNotifier, AppAuthState> _mockAuthFunc(
+    AppAuthState appAuthState) {
+  return StateNotifierProvider<AuthStateNotifier, AppAuthState>((ref) =>
+      AuthStateNotifier(
+          MockAuthCheckRepository(MockAuthCheckingApi(), MockAuthCheckingSql()),
+          state: appAuthState));
+}
 
 /*
-
 --- Test cases ---
-
-Test 1): Authorized
-Test 2): Connectivity
-Test 3): errorWithMessage
-Test 4): error
-Test 5): App_auth_state unauthorized
-
+ 1): Authorized
+ 2): Connectivity
+ 3): errorWithMessage
+ 4): error
+ 5): App_auth_state unauthorized
  */
 
 void main() {
-  StateNotifierProvider<AuthStateNotifier, AppAuthState> mockAuthFunc(
-      AppAuthState appAuthState) {
-    return StateNotifierProvider<AuthStateNotifier, AppAuthState>(
-        (ref) => AuthStateNotifier(state: appAuthState));
-  }
-
   test('AppAuth:Authorized ', () {
-    final mockAuth = mockAuthFunc(const AppAuthState.authorized());
+    final mockAuth = _mockAuthFunc(const AppAuthState.authorized());
     final container = ProviderContainer(
         overrides: [appAuthStateProvider.overrideWithProvider(mockAuth)]);
 
@@ -41,7 +47,7 @@ void main() {
   });
 
   test('AppAuth: error with message ', () {
-    final mockAuth = mockAuthFunc(
+    final mockAuth = _mockAuthFunc(
         const AppAuthState.errorWithMessage("checking error with message"));
     final container = ProviderContainer(
         overrides: [appAuthStateProvider.overrideWithProvider(mockAuth)]);
@@ -53,7 +59,7 @@ void main() {
   });
 
   test('AppAuth: Connectivity ', () {
-    final mockAuth = mockAuthFunc(const AppAuthState.connectivity());
+    final mockAuth = _mockAuthFunc(const AppAuthState.connectivity());
 
     final container = ProviderContainer(
         overrides: [appAuthStateProvider.overrideWithProvider(mockAuth)]);
@@ -65,7 +71,7 @@ void main() {
   });
 
   test('AppAuth: App_auth_state unauthorized ', () {
-    final mockAuth = mockAuthFunc(const AppAuthState.unauthorized());
+    final mockAuth = _mockAuthFunc(const AppAuthState.unauthorized());
 
     final container = ProviderContainer(
         overrides: [appAuthStateProvider.overrideWithProvider(mockAuth)]);

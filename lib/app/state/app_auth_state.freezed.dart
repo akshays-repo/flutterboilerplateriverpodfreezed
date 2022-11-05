@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AppAuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() connectivity,
     required TResult Function() unauthorized,
     required TResult Function() authorized,
@@ -26,6 +27,7 @@ mixin _$AppAuthState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? inital,
     TResult? Function()? connectivity,
     TResult? Function()? unauthorized,
     TResult? Function()? authorized,
@@ -34,6 +36,7 @@ mixin _$AppAuthState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? inital,
     TResult Function()? connectivity,
     TResult Function()? unauthorized,
     TResult Function()? authorized,
@@ -43,6 +46,7 @@ mixin _$AppAuthState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) inital,
     required TResult Function(AppExceptionConnectivity value) connectivity,
     required TResult Function(AppExceptionUnauthorized value) unauthorized,
     required TResult Function(AppAuthorized value) authorized,
@@ -51,6 +55,7 @@ mixin _$AppAuthState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? inital,
     TResult? Function(AppExceptionConnectivity value)? connectivity,
     TResult? Function(AppExceptionUnauthorized value)? unauthorized,
     TResult? Function(AppAuthorized value)? authorized,
@@ -59,6 +64,7 @@ mixin _$AppAuthState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? inital,
     TResult Function(AppExceptionConnectivity value)? connectivity,
     TResult Function(AppExceptionUnauthorized value)? unauthorized,
     TResult Function(AppAuthorized value)? authorized,
@@ -84,6 +90,125 @@ class _$AppAuthStateCopyWithImpl<$Res, $Val extends AppAuthState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$AppAuthStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Initial implements _Initial {
+  const _$_Initial();
+
+  @override
+  String toString() {
+    return 'AppAuthState.inital()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() connectivity,
+    required TResult Function() unauthorized,
+    required TResult Function() authorized,
+    required TResult Function(String message) errorWithMessage,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? inital,
+    TResult? Function()? connectivity,
+    TResult? Function()? unauthorized,
+    TResult? Function()? authorized,
+    TResult? Function(String message)? errorWithMessage,
+  }) {
+    return inital?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? inital,
+    TResult Function()? connectivity,
+    TResult Function()? unauthorized,
+    TResult Function()? authorized,
+    TResult Function(String message)? errorWithMessage,
+    required TResult orElse(),
+  }) {
+    if (inital != null) {
+      return inital();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) inital,
+    required TResult Function(AppExceptionConnectivity value) connectivity,
+    required TResult Function(AppExceptionUnauthorized value) unauthorized,
+    required TResult Function(AppAuthorized value) authorized,
+    required TResult Function(_AuthExeptionWithMessage value) errorWithMessage,
+  }) {
+    return inital(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? inital,
+    TResult? Function(AppExceptionConnectivity value)? connectivity,
+    TResult? Function(AppExceptionUnauthorized value)? unauthorized,
+    TResult? Function(AppAuthorized value)? authorized,
+    TResult? Function(_AuthExeptionWithMessage value)? errorWithMessage,
+  }) {
+    return inital?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? inital,
+    TResult Function(AppExceptionConnectivity value)? connectivity,
+    TResult Function(AppExceptionUnauthorized value)? unauthorized,
+    TResult Function(AppAuthorized value)? authorized,
+    TResult Function(_AuthExeptionWithMessage value)? errorWithMessage,
+    required TResult orElse(),
+  }) {
+    if (inital != null) {
+      return inital(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial implements AppAuthState {
+  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
@@ -125,6 +250,7 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() connectivity,
     required TResult Function() unauthorized,
     required TResult Function() authorized,
@@ -136,6 +262,7 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? inital,
     TResult? Function()? connectivity,
     TResult? Function()? unauthorized,
     TResult? Function()? authorized,
@@ -147,6 +274,7 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? inital,
     TResult Function()? connectivity,
     TResult Function()? unauthorized,
     TResult Function()? authorized,
@@ -162,6 +290,7 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) inital,
     required TResult Function(AppExceptionConnectivity value) connectivity,
     required TResult Function(AppExceptionUnauthorized value) unauthorized,
     required TResult Function(AppAuthorized value) authorized,
@@ -173,6 +302,7 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? inital,
     TResult? Function(AppExceptionConnectivity value)? connectivity,
     TResult? Function(AppExceptionUnauthorized value)? unauthorized,
     TResult? Function(AppAuthorized value)? authorized,
@@ -184,6 +314,7 @@ class _$AppExceptionConnectivity implements AppExceptionConnectivity {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? inital,
     TResult Function(AppExceptionConnectivity value)? connectivity,
     TResult Function(AppExceptionUnauthorized value)? unauthorized,
     TResult Function(AppAuthorized value)? authorized,
@@ -240,6 +371,7 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() connectivity,
     required TResult Function() unauthorized,
     required TResult Function() authorized,
@@ -251,6 +383,7 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? inital,
     TResult? Function()? connectivity,
     TResult? Function()? unauthorized,
     TResult? Function()? authorized,
@@ -262,6 +395,7 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? inital,
     TResult Function()? connectivity,
     TResult Function()? unauthorized,
     TResult Function()? authorized,
@@ -277,6 +411,7 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) inital,
     required TResult Function(AppExceptionConnectivity value) connectivity,
     required TResult Function(AppExceptionUnauthorized value) unauthorized,
     required TResult Function(AppAuthorized value) authorized,
@@ -288,6 +423,7 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? inital,
     TResult? Function(AppExceptionConnectivity value)? connectivity,
     TResult? Function(AppExceptionUnauthorized value)? unauthorized,
     TResult? Function(AppAuthorized value)? authorized,
@@ -299,6 +435,7 @@ class _$AppExceptionUnauthorized implements AppExceptionUnauthorized {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? inital,
     TResult Function(AppExceptionConnectivity value)? connectivity,
     TResult Function(AppExceptionUnauthorized value)? unauthorized,
     TResult Function(AppAuthorized value)? authorized,
@@ -354,6 +491,7 @@ class _$AppAuthorized implements AppAuthorized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() connectivity,
     required TResult Function() unauthorized,
     required TResult Function() authorized,
@@ -365,6 +503,7 @@ class _$AppAuthorized implements AppAuthorized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? inital,
     TResult? Function()? connectivity,
     TResult? Function()? unauthorized,
     TResult? Function()? authorized,
@@ -376,6 +515,7 @@ class _$AppAuthorized implements AppAuthorized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? inital,
     TResult Function()? connectivity,
     TResult Function()? unauthorized,
     TResult Function()? authorized,
@@ -391,6 +531,7 @@ class _$AppAuthorized implements AppAuthorized {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) inital,
     required TResult Function(AppExceptionConnectivity value) connectivity,
     required TResult Function(AppExceptionUnauthorized value) unauthorized,
     required TResult Function(AppAuthorized value) authorized,
@@ -402,6 +543,7 @@ class _$AppAuthorized implements AppAuthorized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? inital,
     TResult? Function(AppExceptionConnectivity value)? connectivity,
     TResult? Function(AppExceptionUnauthorized value)? unauthorized,
     TResult? Function(AppAuthorized value)? authorized,
@@ -413,6 +555,7 @@ class _$AppAuthorized implements AppAuthorized {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? inital,
     TResult Function(AppExceptionConnectivity value)? connectivity,
     TResult Function(AppExceptionUnauthorized value)? unauthorized,
     TResult Function(AppAuthorized value)? authorized,
@@ -496,6 +639,7 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() connectivity,
     required TResult Function() unauthorized,
     required TResult Function() authorized,
@@ -507,6 +651,7 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? inital,
     TResult? Function()? connectivity,
     TResult? Function()? unauthorized,
     TResult? Function()? authorized,
@@ -518,6 +663,7 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? inital,
     TResult Function()? connectivity,
     TResult Function()? unauthorized,
     TResult Function()? authorized,
@@ -533,6 +679,7 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) inital,
     required TResult Function(AppExceptionConnectivity value) connectivity,
     required TResult Function(AppExceptionUnauthorized value) unauthorized,
     required TResult Function(AppAuthorized value) authorized,
@@ -544,6 +691,7 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? inital,
     TResult? Function(AppExceptionConnectivity value)? connectivity,
     TResult? Function(AppExceptionUnauthorized value)? unauthorized,
     TResult? Function(AppAuthorized value)? authorized,
@@ -555,6 +703,7 @@ class _$_AuthExeptionWithMessage implements _AuthExeptionWithMessage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? inital,
     TResult Function(AppExceptionConnectivity value)? connectivity,
     TResult Function(AppExceptionUnauthorized value)? unauthorized,
     TResult Function(AppAuthorized value)? authorized,

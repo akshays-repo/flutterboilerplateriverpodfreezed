@@ -1,8 +1,5 @@
-import 'package:flutter_boilerplate/app/api/example_api.dart';
-import 'package:flutter_boilerplate/app/repository/example_repository.dart';
 import 'package:flutter_boilerplate/app/state/app_start_state.dart';
 import 'package:flutter_boilerplate/app/provider/auth_state_provider.dart';
-import 'package:flutter_boilerplate/app/provider/dio_provider.dart';
 import 'package:flutter_boilerplate/app/state/app_auth_state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -10,23 +7,23 @@ final appStartStateProvider =
     StateNotifierProvider<AppStartStateNotifier, AppStartState>((ref) {
   AppAuthState appAuthState = ref.read(appAuthStateProvider);
 
-  AppRepository appRepository =
-      AppRepository(AppApi(dioClient: ref.watch(dioProvider)));
-
-  return AppStartStateNotifier(appAuthState, appRepository);
+  return AppStartStateNotifier(appAuthState);
 });
 
 class AppStartStateNotifier extends StateNotifier<AppStartState> {
-  AppStartStateNotifier(this._appAuthState, this._appRepository)
-      : super(const AppStartState.initial()) {
+  AppStartStateNotifier(this._appAuthState,
+      {AppStartState state = const AppStartState.initial()})
+      : super(state) {
     _init();
   }
 
   final AppAuthState _appAuthState;
-  final AppRepository _appRepository;
 
   Future<void> _init() async {
     _appAuthState.when(
+      initial: () {
+        state = const AppStartState.initial();
+      },
       authorized: () {
         state = const AppStartState.authenticated();
       },
