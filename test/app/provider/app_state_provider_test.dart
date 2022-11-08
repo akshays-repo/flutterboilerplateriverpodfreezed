@@ -2,7 +2,7 @@ import 'package:flutter_boilerplate/app/provider/app_state_provider.dart';
 import 'package:flutter_boilerplate/app/provider/auth_state_provider.dart';
 import 'package:flutter_boilerplate/app/repository/api/authchecking_api.dart';
 import 'package:flutter_boilerplate/app/repository/authchecking_repositoty.dart';
-import 'package:flutter_boilerplate/app/repository/sql/authchecking_sql.dart';
+import 'package:flutter_boilerplate/app/repository/isar/authchecking_sql.dart';
 import 'package:flutter_boilerplate/app/state/app_auth_state.dart';
 import 'package:flutter_boilerplate/app/state/app_start_state.dart';
 import 'package:flutter_test/flutter_test.dart';

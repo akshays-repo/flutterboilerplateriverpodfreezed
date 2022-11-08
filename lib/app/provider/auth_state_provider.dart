@@ -12,7 +12,9 @@ final appAuthStateProvider =
 class AuthStateNotifier extends StateNotifier<AppAuthState> {
   AuthStateNotifier(this._authCheckingRepository,
       {AppAuthState state = const AppAuthState.initial()})
-      : super(state);
+      : super(state) {
+    isUserLogin();
+  }
 
   final AuthCheckingRepository _authCheckingRepository;
 

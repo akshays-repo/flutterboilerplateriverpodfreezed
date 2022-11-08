@@ -26,8 +26,10 @@ class AppMainScreen extends StatelessWidget {
                 AppStartState appStartState = ref.watch(appStartStateProvider);
                 return appStartState.maybeWhen(
                     authenticated: () {
-                      redirectToHomeScreen(context);
-                      return Container();
+                      // redirectToHomeScreen(context);
+                      return Container(
+                        child: const Text("Auth"),
+                      );
                     },
                     initial: (() => const CircularProgressIndicator()),
                     errorWithMessage: (err) => (Text(err)),
