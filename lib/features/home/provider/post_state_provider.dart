@@ -6,14 +6,14 @@ import 'package:flutter_boilerplate/app/provider/dio_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final postStateProvider =
-    StateNotifierProvider<_PostSateNotifier, PostState>((ref) {
+    StateNotifierProvider<PostSateNotifier, PostState>((ref) {
   PostRepo postRepo = PostRepo(PostApi(ref.watch(dioProvider)));
 
-  return _PostSateNotifier(postRepo, ref);
+  return PostSateNotifier(postRepo, ref);
 });
 
-class _PostSateNotifier extends StateNotifier<PostState> {
-  _PostSateNotifier(this._postRepo, this._ref)
+class PostSateNotifier extends StateNotifier<PostState> {
+  PostSateNotifier(this._postRepo, this._ref)
       : super(const PostState.initial());
 
   final PostRepo _postRepo;

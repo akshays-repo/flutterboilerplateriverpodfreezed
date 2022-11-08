@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/app/utils/logger.dart';
-import 'package:flutter_boilerplate/features/auth/widget/Login_screen.dart';
+import 'package:flutter_boilerplate/features/auth/view/PhoneOtpVerification_Screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void start() {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen(),
+      home: const PhoneOtpVerificationScreen(),
     );
   }
 }

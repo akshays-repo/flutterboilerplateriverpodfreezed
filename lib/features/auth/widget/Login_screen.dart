@@ -1,5 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/app/widget/connectivty_snackbar.dart';
 import 'package:flutter_boilerplate/features/auth/widget/Forgot_Screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -55,6 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
+            const ConnectivitySnackbar(),
             const SizedBox(
               height: 10,
             ),

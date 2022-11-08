@@ -43,7 +43,9 @@ dependencies:
   flutter_dotenv: ^5.0.2
   mocktail: ^0.3.0
   email_validator: ^2.1.17
-
+  connectivity_plus: ^3.0.2
+  sms_autofill: ^2.2.0
+  pin_code_fields: ^7.4.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
