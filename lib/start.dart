@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/app/utils/logger.dart';
 import 'package:flutter_boilerplate/app/widget/main_screen.dart';
+import 'package:flutter_boilerplate/hive_init.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:path_provider/path_provider.dart';
 
-void start() {
+void start() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final document = await getApplicationDocumentsDirectory();
+
+  // Hive init
+  await hiveInit(document);
+
   runApp(ProviderScope(
     observers: [Logger()],
     child: const MyApp(),

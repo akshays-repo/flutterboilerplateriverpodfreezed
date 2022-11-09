@@ -1,7 +1,7 @@
 import 'package:flutter_boilerplate/app/provider/app_state_provider.dart';
 import 'package:flutter_boilerplate/app/provider/auth_state_provider.dart';
 import 'package:flutter_boilerplate/app/repository/api/authchecking_api.dart';
-import 'package:flutter_boilerplate/app/repository/authchecking_repositoty.dart';
+import 'package:flutter_boilerplate/app/repository/auth_repositoty.dart';
 import 'package:flutter_boilerplate/app/repository/isar/authchecking_sql.dart';
 import 'package:flutter_boilerplate/app/state/app_auth_state.dart';
 import 'package:flutter_boilerplate/app/state/app_start_state.dart';
@@ -13,7 +13,7 @@ class MockAuthCheckingSql extends AuthCheckingSql implements Mock {}
 
 class MockAuthCheckingApi extends AuthCheckingApi implements Mock {}
 
-class MockAuthCheckRepository extends AuthCheckingRepository implements Mock {
+class MockAuthCheckRepository extends AuthRepository implements Mock {
   MockAuthCheckRepository(super.authCheckingApi, super.authCheckingSql);
 }
 

@@ -24,11 +24,28 @@ class AppMainScreen extends StatelessWidget {
             Consumer(
               builder: (context, ref, child) {
                 AppStartState appStartState = ref.watch(appStartStateProvider);
+
                 return appStartState.maybeWhen(
                     authenticated: () {
                       // redirectToHomeScreen(context);
                       return Container(
                         child: const Text("Auth"),
+                      );
+                    },
+                    unauthenticated: () {
+                      return Column(
+                        children: [
+                          Container(
+                            child: const Text("Please login "),
+                          ),
+                          ElevatedButton(
+                              onPressed: () {
+                                ref
+                                    .read(appStartStateProvider.notifier)
+                                    .login();
+                              },
+                              child: const Text("Click to login "))
+                        ],
                       );
                     },
                     initial: (() => const CircularProgressIndicator()),
