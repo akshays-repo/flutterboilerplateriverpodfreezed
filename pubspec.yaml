@@ -50,6 +50,11 @@ dependencies:
   hive_flutter: ^1.1.0
   path_provider: ^2.0.11
   flutter_secure_storage: ^6.0.0
+  sizer: ^2.0.15
+  loading_indicator: ^3.1.0
+  intl_phone_number_input: ^0.7.1
+  flutter_keyboard_size: ^1.0.1
+  device_preview: ^1.1.0
 
 dev_dependencies:
   flutter_test:

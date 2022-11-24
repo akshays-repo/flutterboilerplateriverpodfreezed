@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/features/auth/data/auth_api.dart';
 import 'package:flutter_boilerplate/features/auth/provider/forgot_provider.dart';
-import 'package:flutter_boilerplate/features/auth/widget/Forgot_Screen.dart';
+import 'package:flutter_boilerplate/features/auth/view/widget/Forgot_Screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

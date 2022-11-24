@@ -13,7 +13,6 @@ class _MainAuthScreenState extends State<MainAuthScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     initAuthPhoneHint();
   }
@@ -32,28 +31,24 @@ class _MainAuthScreenState extends State<MainAuthScreen> {
       if (phone != null) {
         phoneNumberController.value = phone as TextEditingValue;
       }
-    } on PlatformException catch (e) {
-      print('Failed to get mobile number because of: ${e.message}');
-    }
+    } on PlatformException {}
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              TextFormField(
-                controller: phoneNumberController,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    initAuthPhoneHint();
-                  },
-                  child: const Text("Get init phone number"))
-            ],
-          ),
+        child: Column(
+          children: [
+            TextFormField(
+              controller: phoneNumberController,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  initAuthPhoneHint();
+                },
+                child: const Text("Get init phone number"))
+          ],
         ),
       ),
     );
