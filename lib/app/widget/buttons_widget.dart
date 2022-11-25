@@ -32,7 +32,7 @@ class _ButtonText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(fontSize: 14.sp),
+      style: const TextStyle(fontSize: 14),
     );
   }
 }

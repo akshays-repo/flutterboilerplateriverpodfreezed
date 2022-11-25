@@ -55,6 +55,9 @@ dependencies:
   intl_phone_number_input: ^0.7.1
   flutter_keyboard_size: ^1.0.1
   device_preview: ^1.1.0
+  intl_phone_field: ^3.1.0
+  flutter_svg: ^1.1.6
+  responsive_framework: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +84,10 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - env/
+    - assets/banners/
+    - assets/icons/
+
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
