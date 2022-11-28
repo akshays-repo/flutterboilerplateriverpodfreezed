@@ -3,7 +3,6 @@ import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-import 'package:sizer/sizer.dart';
 
 class PhoneNumberFieldWidget extends StatelessWidget {
   const PhoneNumberFieldWidget(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/app/widget/buttons_widget.dart';
+import 'package:flutter_boilerplate/features/auth/view/otp_authentication_view.dart';
 import 'package:flutter_boilerplate/features/auth/view/widget/header_banner_custompaint_widget.dart';
 import 'package:flutter_boilerplate/features/auth/view/widget/phonenumber_field_widget.dart';
 import 'package:flutter_keyboard_size/flutter_keyboard_size.dart';
@@ -81,8 +82,14 @@ class _PhoneNumberHandleSection extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        const BlockButton(
+        BlockButton(
           text: "Continue",
+          isSubmit: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => OtpAuthenticationView()),
+            );
+          },
         ),
       ],
     );
@@ -170,25 +177,9 @@ class _ConnectUsingOther extends StatelessWidget {
                 ),
               ],
             )),
-
             const SizedBox(
               height: 5,
             ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   children: [
-            //     Text("Terms and condition ",
-            //         style: TextStyle(
-            //             fontSize: 10 ,
-            //             fontWeight: FontWeight.w400,
-            //             color: Colors.black)),
-            //     Text("Privacy Policy",
-            //         style: TextStyle(
-            //             fontSize: 10 ,
-            //             fontWeight: FontWeight.w400,
-            //             color: Colors.black)),
-            //   ],
-            // ),
             const SizedBox(
               height: 1,
             )
@@ -246,21 +237,21 @@ class _ConditionalHeaderBanner extends StatelessWidget {
       if (!res.isOpen) {
         return SizedBox(
           width: 100.w,
-          height: 50.h,
+          height: res.isOpen ? 45.h : 50.h,
           child: CustomPaint(
             size: Size(100.w, 50.h),
             painter: RPSCustomPainter(),
             child: SafeArea(
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(40, 75, 0, 0),
-                  child: Text(
-                    "Vetto",
-                    style: TextStyle(
-                        fontSize: 32,
-                        color: Colors.blue.shade900,
-                        fontWeight: FontWeight.w600),
-                  ),
+              child: Padding(
+                padding: res.isOpen
+                    ? const EdgeInsets.fromLTRB(40, 50, 0, 0)
+                    : const EdgeInsets.fromLTRB(40, 75, 0, 0),
+                child: Text(
+                  "Vetto",
+                  style: TextStyle(
+                      fontSize: 32,
+                      color: Colors.blue.shade900,
+                      fontWeight: FontWeight.w600),
                 ),
               ),
             ),

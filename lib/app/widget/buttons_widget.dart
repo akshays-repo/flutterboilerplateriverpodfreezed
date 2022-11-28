@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:loading_indicator/loading_indicator.dart';
 import 'package:sizer/sizer.dart';
 
 class BlockButton extends StatelessWidget {
-  const BlockButton({super.key, this.text = ""});
+  const BlockButton(
+      {super.key,
+      this.text = "",
+      this.isLoading = false,
+      required this.isSubmit});
   final String text;
+  final bool isLoading;
+  final Function isSubmit;
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
+    return ElevatedButton.icon(
+      onPressed: isLoading
+          ? null
+          : () {
+              isSubmit();
+            },
       style: ElevatedButton.styleFrom(
         elevation: 1,
         minimumSize: Size(100.w, 5.h),
@@ -17,9 +26,10 @@ class BlockButton extends StatelessWidget {
         disabledBackgroundColor: const Color.fromARGB(61, 13, 72, 161),
         padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
       ),
-      child: _ButtonText(
+      label: _ButtonText(
         text: text,
       ),
+      icon: isLoading ? const _ButtonLoadingAnimation() : Container(),
     );
   }
 }
@@ -41,12 +51,14 @@ class _ButtonLoadingAnimation extends StatelessWidget {
   const _ButtonLoadingAnimation();
   @override
   Widget build(BuildContext context) {
-    return const LoadingIndicator(
-      indicatorType: Indicator.ballPulse,
-      colors: [
-        Colors.white,
-      ],
-      strokeWidth: 1,
+    return Container(
+      width: 24,
+      height: 24,
+      padding: const EdgeInsets.all(2.0),
+      child: const CircularProgressIndicator(
+        color: Color.fromARGB(101, 13, 72, 161),
+        strokeWidth: 3,
+      ),
     );
   }
 }
