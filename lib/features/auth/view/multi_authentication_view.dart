@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/app/widget/buttons_widget.dart';
 import 'package:flutter_boilerplate/features/auth/view/otp_authentication_view.dart';
+import 'package:flutter_boilerplate/features/auth/view/widget/email_field_widget.dart';
 import 'package:flutter_boilerplate/features/auth/view/widget/header_banner_custompaint_widget.dart';
 import 'package:flutter_boilerplate/features/auth/view/widget/phonenumber_field_widget.dart';
 import 'package:flutter_keyboard_size/flutter_keyboard_size.dart';
@@ -27,8 +28,24 @@ class MultiAuthenticationView extends StatelessWidget {
   }
 }
 
-class _AuthFieldSection extends StatelessWidget {
+enum SelectedAuthMethod { phone, email, google }
+
+class _AuthFieldSection extends StatefulWidget {
   const _AuthFieldSection();
+  @override
+  State<_AuthFieldSection> createState() => _AuthFieldSectionState();
+}
+
+class _AuthFieldSectionState extends State<_AuthFieldSection> {
+  //  selected auth method
+  SelectedAuthMethod _selectedAuthMethod = SelectedAuthMethod.phone;
+
+// Change selected auth method
+  void handleChangeAuthSelectedMethod(SelectedAuthMethod selectedAuthMethod) {
+    setState(() {
+      _selectedAuthMethod = selectedAuthMethod;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +69,22 @@ class _AuthFieldSection extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _PhoneNumberHandleSection(),
-                  const _ConnectUsingOther(),
+                  //
+                  if (_selectedAuthMethod == SelectedAuthMethod.phone ||
+                      _selectedAuthMethod == SelectedAuthMethod.google)
+                    _PhoneNumberHandleSection(),
+                  //
+                  if (_selectedAuthMethod == SelectedAuthMethod.email ||
+                      _selectedAuthMethod == SelectedAuthMethod.google)
+                    _EmailHandleSection(),
+                  //
+                  _ConnectUsingOther(
+                    selectedAuthMethod: _selectedAuthMethod,
+                    handleClickAuthChange:
+                        (SelectedAuthMethod selectedAuthMethod) {
+                      handleChangeAuthSelectedMethod(selectedAuthMethod);
+                    },
+                  ),
                 ],
               )),
         ),
@@ -62,8 +93,35 @@ class _AuthFieldSection extends StatelessWidget {
   }
 }
 
+class _EmailHandleSection extends StatelessWidget {
+  _EmailHandleSection();
+
+  final TextEditingController controller = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const EmailFieldWidget(),
+        const SizedBox(
+          height: 20,
+        ),
+        BlockButton(
+          text: "Continue",
+          isSubmit: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const OtpAuthenticationView()),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
 class _PhoneNumberHandleSection extends StatelessWidget {
-  _PhoneNumberHandleSection();
   final TextEditingController controller = TextEditingController();
   final PhoneNumber number =
       PhoneNumber(phoneNumber: "", dialCode: "91", isoCode: "IN");
@@ -72,9 +130,6 @@ class _PhoneNumberHandleSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // const SizedBox(
-        //   height: 10,
-        // ),
         PhoneNumberFieldWidget(
           number: number,
           textEditingController: controller,
@@ -87,7 +142,8 @@ class _PhoneNumberHandleSection extends StatelessWidget {
           isSubmit: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => OtpAuthenticationView()),
+              MaterialPageRoute(
+                  builder: (context) => const OtpAuthenticationView()),
             );
           },
         ),
@@ -97,7 +153,11 @@ class _PhoneNumberHandleSection extends StatelessWidget {
 }
 
 class _ConnectUsingOther extends StatelessWidget {
-  const _ConnectUsingOther();
+  const _ConnectUsingOther(
+      {required this.handleClickAuthChange, required this.selectedAuthMethod});
+  final SelectedAuthMethod selectedAuthMethod;
+
+  final Function(SelectedAuthMethod) handleClickAuthChange;
 
   @override
   Widget build(BuildContext context) {
@@ -121,6 +181,9 @@ class _ConnectUsingOther extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 loginOption(
+                  handleClick: () {
+                    // handleClickAuthChange(SelectedAuthMethod.google);
+                  },
                   label: "Google",
                   icon: const Image(
                     image: AssetImage(
@@ -130,16 +193,34 @@ class _ConnectUsingOther extends StatelessWidget {
                     height: 20,
                   ),
                 ),
-                loginOption(
-                  label: "Email",
-                  icon: const Image(
-                    image: AssetImage(
-                      'assets/icons/email.png',
+                if (selectedAuthMethod == SelectedAuthMethod.phone)
+                  loginOption(
+                    handleClick: () {
+                      handleClickAuthChange(SelectedAuthMethod.email);
+                    },
+                    label: "Email",
+                    icon: const Image(
+                      image: AssetImage(
+                        'assets/icons/email.png',
+                      ),
+                      width: 20,
+                      height: 20,
                     ),
-                    width: 20,
-                    height: 20,
                   ),
-                ),
+                if (selectedAuthMethod == SelectedAuthMethod.email)
+                  loginOption(
+                    handleClick: () {
+                      handleClickAuthChange(SelectedAuthMethod.phone);
+                    },
+                    label: "Phone",
+                    icon: const Image(
+                      image: AssetImage(
+                        'assets/icons/phone.png',
+                      ),
+                      width: 20,
+                      height: 20,
+                    ),
+                  ),
               ],
             ),
             const SizedBox(
@@ -189,7 +270,10 @@ class _ConnectUsingOther extends StatelessWidget {
     );
   }
 
-  Widget loginOption({required String label, required Widget icon}) {
+  Widget loginOption(
+      {required String label,
+      required Widget icon,
+      required Function handleClick}) {
     return Container(
       decoration: BoxDecoration(
           color: Colors.transparent,
@@ -199,7 +283,7 @@ class _ConnectUsingOther extends StatelessWidget {
           border: Border.all(
               color: const Color.fromARGB(170, 128, 122, 122), width: 1)),
       child: TextButton.icon(
-        onPressed: () => {},
+        onPressed: () => {handleClick()},
         style: TextButton.styleFrom(minimumSize: Size(32.w, 5.h)),
         icon: icon,
         label: Text(
