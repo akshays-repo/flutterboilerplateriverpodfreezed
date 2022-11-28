@@ -7,4 +7,7 @@ class LightTheme extends ATheme {
 
   @override
   Color get secondaryColor => Colors.white;
+
+  @override
+  Color get headerBackground => const Color(0xffB9E0FE).withOpacity(1.0);
 }

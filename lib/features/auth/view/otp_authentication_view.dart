@@ -1,7 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/app/widget/buttons_widget.dart';
 import 'package:flutter_boilerplate/features/auth/view/widget/otp_field_widget.dart';
+import 'package:flutter_boilerplate/features/home/view/landing_home_view.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 class OtpAuthenticationView extends StatefulWidget {
@@ -87,7 +87,13 @@ class _OtpAuthenticationViewState extends State<OtpAuthenticationView> {
               height: 20,
             ),
             BlockButton(
-              isSubmit: () {},
+              isSubmit: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const LandingHomeView()),
+                );
+              },
               text: "Verify",
             ),
             const SizedBox(
