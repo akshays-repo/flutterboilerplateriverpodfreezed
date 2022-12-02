@@ -172,53 +172,32 @@ class _OtpHeaderWidget extends StatelessWidget {
         Column(
           children: [
             Text(
-              "Verify your ",
-              style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.grey.shade700),
-            ),
-            Text(
-              "phone number ",
+              "Verify your phone number",
               style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.w600,
                   color: Colors.grey.shade700),
             ),
           ],
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        const Text(
+          "+9170182778977",
+          style: TextStyle(
+              fontSize: 24, fontWeight: FontWeight.w600, color: Colors.black),
         ),
         const SizedBox(
           height: 30,
         ),
         const Text(
-          "We have sent verification code to ",
+          "Enter your OTP here",
           style: TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w500,
               color: Color.fromARGB(249, 100, 100, 100)),
         ),
-        const SizedBox(
-          height: 10,
-        ),
-        RichText(
-            text: const TextSpan(
-          children: [
-            TextSpan(
-              text: '+9170182778977',
-              style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Color.fromARGB(249, 100, 100, 100)),
-            ),
-            TextSpan(
-              text: ' Change phone number ?',
-              style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.blue,
-                  fontWeight: FontWeight.w600),
-            ),
-          ],
-        ))
       ],
     );
   }
