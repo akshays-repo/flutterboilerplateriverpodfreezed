@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/app/theme/light_theme.dart';
+import 'package:flutter_boilerplate/app/theme/theme.dart';
 
 class LandingHeader extends StatelessWidget {
   const LandingHeader({super.key});
@@ -9,7 +9,7 @@ class LandingHeader extends StatelessWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 0,
-      backgroundColor: LightTheme().headerBackground,
+      backgroundColor: ATheme().headerBackground,
       actions: const [HeaderNotificationIcon()],
     );
   }

@@ -1,12 +1,13 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/app/utils/logger.dart';
-import 'package:flutter_boilerplate/features/auth/view/multi_authentication_view.dart';
 import 'package:flutter_boilerplate/hive_init.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:sizer/sizer.dart';
+
+import 'features/appointments/views/doctor_time_slot_view.dart';
 
 void start() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: const MultiAuthenticationView(),
+          home: const DoctorTimeSlotView(),
         );
       },
     );

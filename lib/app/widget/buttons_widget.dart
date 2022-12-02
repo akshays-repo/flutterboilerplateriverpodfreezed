@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/app/theme/theme.dart';
 import 'package:sizer/sizer.dart';
 
 class BlockButton extends StatelessWidget {
@@ -22,7 +23,7 @@ class BlockButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         elevation: 1,
         minimumSize: Size(100.w, 5.h),
-        backgroundColor: Colors.blue.shade900,
+        backgroundColor: ATheme().primaryBlue,
         disabledBackgroundColor: const Color.fromARGB(61, 13, 72, 161),
         padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
       ),
